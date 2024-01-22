@@ -1,0 +1,43 @@
+package com.naveenprince.data.mapper
+
+import com.naveenprince.common.model.Sport
+import com.naveenprince.common.model.SportsNews
+import com.naveenprince.common.utils.Utils.Companion.timeFormatConversion
+
+/**
+ * Created by Naveen.
+ */
+fun com.naveenprince.data.source.remote.sportsnews.NewsResponse.toSportsNews(): MutableList<SportsNews> {
+    val newsResults = mutableListOf<SportsNews>()
+    for (result in this.f1Results) {
+        newsResults.add(
+            SportsNews(
+                Sport.F1,
+                result.publicationDate.timeFormatConversion(),
+                "${result.winner} wins ${result.tournament} by ${result.seconds} seconds",
+            )
+        )
+    }
+    for (result in this.nbaResults) {
+        newsResults.add(
+            SportsNews(
+                Sport.NBA,
+                result.publicationDate.timeFormatConversion(),
+                "${result.mvp} leads ${result.winner} to game ${result.gameNumber} " +
+                        "win in the ${result.tournament}",
+            )
+        )
+    }
+    for (result in this.Tennis) {
+        newsResults.add(
+            SportsNews(
+                Sport.TENNIS,
+                result.publicationDate.timeFormatConversion(),
+                "${result.tournament}: ${result.winner} wins against " +
+                        "${result.looser} in ${result.numberOfSets} sets",
+            )
+        )
+    }
+    return newsResults
+}
+

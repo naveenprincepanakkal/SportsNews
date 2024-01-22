@@ -1,0 +1,29 @@
+{
+    "f1Results": [
+        {
+            "publicationDate": "May 9, 2020 8:09:03 PM",
+            "seconds": 5.856,
+            "tournament": "Silverstone Grand Prix",
+            "winner": "Lewis Hamilton"
+        }
+    ],
+    "nbaResults": [
+        {
+            "gameNumber": 6,
+            "looser": "Heat",
+            "mvp": "Lebron James",
+            "publicationDate": "May 9, 2020 9:15:15 AM",
+            "tournament": "NBA playoffs",
+            "winner": "Lakers"
+        }
+    ],
+    "Tennis": [
+        {
+            "looser": "Schwartzman ",
+            "numberOfSets": 3,
+            "publicationDate": "May 9, 2020 11:15:15 PM",
+            "tournament": "Roland Garros",
+            "winner": "Rafael Nadal"
+        }
+    ]
+}
