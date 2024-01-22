@@ -4,7 +4,7 @@ The Sports News is an Android Native Application that displays the latest sports
 
 This Android application uses the MVVM (Model-View-ViewModel) clean architecture with modules for data, domain and ui layers.
 
-This App relies on several powerful libraries and technologies to provide an efficient and feature-rich user experience. Below are the key dependencies used in this project:
+This App relies on several powerful libraries and technologies with jetpack compose to provide an efficient and feature-rich user experience. Below are the key dependencies used in this project:
 
 ## Dependencies
 
@@ -30,11 +30,18 @@ This project was built using references from the below links
 
 ### ToDo
 
-- Overall UI/UX can be improved.
-- More tests can be written to increase the overall test coverage along with UI testing for compose.
+- Enhancements can be made to the overall UI/UX.
+- More tests can be written to increase the overall test coverage along with UI testing for jetpack compose.
 - Project modules can be made more refined.
-- Hardcode string can be moved to string.xml
-- Mode code comments can be added.
+- A few Hardcoded strings can be moved to string.xml.
+- Code commenting can be improved.
 - Adding build flavors and configuring proguard for production build
 - Need to handle various screen sizes for tablet and horizontal screen orientations
+  
+
+## Contact
+
+If you have any suggestions or feedback, feel free to contact me at naveenprincep@gmail.com or [LinkedIn](https://www.linkedin.com/in/naveenprincep/)
+
+Happy coding!
 
