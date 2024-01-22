@@ -3,11 +3,14 @@ package com.naveenprince.data.mapper
 import com.naveenprince.common.model.Sport
 import com.naveenprince.common.model.SportsNews
 import com.naveenprince.common.utils.Utils.Companion.timeFormatConversion
+import com.naveenprince.data.source.remote.sportsnews.NewsResponse
 
 /**
+ * Class to map [NewsResponse] to list of [SportsNews]
+ *
  * Created by Naveen.
  */
-fun com.naveenprince.data.source.remote.sportsnews.NewsResponse.toSportsNews(): MutableList<SportsNews> {
+fun NewsResponse.toSportsNews(): MutableList<SportsNews> {
     val newsResults = mutableListOf<SportsNews>()
     for (result in this.f1Results) {
         newsResults.add(

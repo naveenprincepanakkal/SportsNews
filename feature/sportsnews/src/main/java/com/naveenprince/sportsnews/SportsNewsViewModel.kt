@@ -12,6 +12,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 /**
+ * View Model class for sports view
  * Created by Naveen.
  */
 @HiltViewModel

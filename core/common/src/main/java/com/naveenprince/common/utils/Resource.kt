@@ -1,6 +1,8 @@
 package com.naveenprince.common.utils
 
 /**
+ * Class used to handle api service response
+ *
  * Created by Naveen.
  */
 sealed class Resource<T>(val data: T? = null, val message: String? = null) {

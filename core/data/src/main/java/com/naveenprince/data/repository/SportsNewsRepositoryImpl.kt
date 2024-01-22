@@ -8,6 +8,8 @@ import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 /**
+ * Repository implementation class for sports news
+ *
  * Created by Naveen.
  */
 class SportsNewsRepositoryImpl @Inject constructor(private val dataSource: SportsNewsDataSource) :

@@ -7,6 +7,8 @@ import java.io.IOException
 import javax.inject.Inject
 
 /**
+ * Data Source implementation class for sports news
+ *
  * Created by Naveen.
  */
 class SportsNewsDataSourceImpl @Inject constructor(private val api: SportsNewsApi) :

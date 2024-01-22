@@ -10,6 +10,8 @@ import retrofit2.create
 import javax.inject.Singleton
 
 /**
+ * Dependency Injection class for overall app data module
+ *
  * Created by Naveen.
  */
 @Module

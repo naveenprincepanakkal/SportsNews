@@ -11,6 +11,8 @@ import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 /**
+ * UseCase class to map formatted news and sort in chronological order by the most recent first.
+ *
  * Created by Naveen.
  */
 class SportsResultsUseCase @Inject constructor(private val sportsNewsRepository: SportsNewsRepository) {

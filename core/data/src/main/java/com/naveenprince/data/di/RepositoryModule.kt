@@ -10,11 +10,13 @@ import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
 /**
+ * Dependency Injection class for Repository module
+ *
  * Created by Naveen.
  */
 @InstallIn(SingletonComponent::class)
 @Module
-object RepositoryModule2 {
+object RepositoryModule {
 
     @Singleton
     @Provides

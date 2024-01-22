@@ -9,11 +9,13 @@ import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
 /**
+ * Dependency Injection class for Data Source module
+ *
  * Created by Naveen.
  */
 @InstallIn(SingletonComponent::class)
 @Module
-abstract class DataSourceModule2 {
+abstract class DataSourceModule {
 
     @Singleton
     @Binds
