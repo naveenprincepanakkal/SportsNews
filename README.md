@@ -33,6 +33,7 @@ This project was built using references from the below links
 - Enhancements can be made to the overall UI/UX.
 - More tests can be written to increase the overall test coverage along with UI testing for jetpack compose.
 - Project modules can be made more refined.
+- Error handling can be improved.
 - A few Hardcoded strings can be moved to string.xml.
 - Code commenting can be improved.
 - Adding build flavors and configuring proguard for production build
