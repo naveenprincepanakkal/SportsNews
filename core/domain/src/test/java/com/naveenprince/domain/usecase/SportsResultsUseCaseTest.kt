@@ -1,10 +1,11 @@
 package com.naveenprince.domain.usecase
 
-import com.naveenprince.common.model.Sport
-import com.naveenprince.common.model.SportsNews
+
 import com.naveenprince.common.utils.Resource
 import com.naveenprince.data.repository.SportsNewsRepository
 import com.naveenprince.data.source.remote.sportsnews.NewsResponse
+import com.naveenprince.domain.model.Sport
+import com.naveenprince.domain.model.SportsNews
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import kotlinx.coroutines.flow.flowOf

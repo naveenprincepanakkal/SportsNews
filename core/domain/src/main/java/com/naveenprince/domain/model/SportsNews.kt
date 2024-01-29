@@ -1,4 +1,4 @@
-package com.naveenprince.common.model
+package com.naveenprince.domain.model
 
 /**
  * Created by Naveen.

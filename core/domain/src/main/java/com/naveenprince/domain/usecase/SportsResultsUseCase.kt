@@ -1,11 +1,11 @@
 package com.naveenprince.domain.usecase
 
-import com.naveenprince.common.model.SportsNews
-import com.naveenprince.common.utils.Utils.Companion.sortByDescendingWithDate
-import com.naveenprince.data.mapper.toSportsNews
-import com.naveenprince.data.repository.SportsNewsRepository
-import com.naveenprince.common.utils.Resource
 
+import com.naveenprince.common.utils.Resource
+import com.naveenprince.common.utils.Utils.Companion.sortByDescendingWithDate
+import com.naveenprince.data.repository.SportsNewsRepository
+import com.naveenprince.domain.mapper.toSportsNews
+import com.naveenprince.domain.model.SportsNews
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject

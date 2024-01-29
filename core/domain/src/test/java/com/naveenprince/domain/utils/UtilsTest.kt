@@ -1,9 +1,11 @@
-package com.naveenprince.common.utils
+package com.naveenprince.domain.utils
 
-import com.naveenprince.common.model.Sport
-import com.naveenprince.common.model.SportsNews
+
+import com.naveenprince.common.utils.Utils
 import com.naveenprince.common.utils.Utils.Companion.sortByDescendingWithDate
 import com.naveenprince.common.utils.Utils.Companion.timeFormatConversion
+import com.naveenprince.domain.model.Sport
+import com.naveenprince.domain.model.SportsNews
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Assert.fail
@@ -46,17 +48,49 @@ class UtilsTest {
     @Test
     fun testSortByDescendingWithDate_success() {
         val unSortedList = listOf(
-            SportsNews(Sport.TENNIS, "2020-05-09 09:15:15 AM", ""),
-            SportsNews(Sport.TENNIS, "2020-05-09 08:09:03 PM", ""),
-            SportsNews(Sport.TENNIS, "2020-09-05 10:10:10 PM", ""),
-            SportsNews(Sport.TENNIS, "2020-05-09 11:15:15 PM", ""),
+            SportsNews(
+                Sport.TENNIS,
+                "2020-05-09 09:15:15 AM",
+                ""
+            ),
+            SportsNews(
+                Sport.TENNIS,
+                "2020-05-09 08:09:03 PM",
+                ""
+            ),
+            SportsNews(
+                Sport.TENNIS,
+                "2020-09-05 10:10:10 PM",
+                ""
+            ),
+            SportsNews(
+                Sport.TENNIS,
+                "2020-05-09 11:15:15 PM",
+                ""
+            ),
         )
 
         val expectedResult = listOf(
-            SportsNews(Sport.TENNIS, "2020-09-05 10:10:10 PM", ""),
-            SportsNews(Sport.TENNIS, "2020-05-09 11:15:15 PM", ""),
-            SportsNews(Sport.TENNIS, "2020-05-09 08:09:03 PM", ""),
-            SportsNews(Sport.TENNIS, "2020-05-09 09:15:15 AM", ""),
+            SportsNews(
+                Sport.TENNIS,
+                "2020-09-05 10:10:10 PM",
+                ""
+            ),
+            SportsNews(
+                Sport.TENNIS,
+                "2020-05-09 11:15:15 PM",
+                ""
+            ),
+            SportsNews(
+                Sport.TENNIS,
+                "2020-05-09 08:09:03 PM",
+                ""
+            ),
+            SportsNews(
+                Sport.TENNIS,
+                "2020-05-09 09:15:15 AM",
+                ""
+            ),
         )
 
         val sortedList = unSortedList.sortByDescendingWithDate({ it.publicationDate })

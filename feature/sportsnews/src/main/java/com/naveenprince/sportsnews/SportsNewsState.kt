@@ -1,6 +1,6 @@
 package com.naveenprince.sportsnews
 
-import com.naveenprince.common.model.SportsNews
+import com.naveenprince.domain.model.SportsNews
 
 
 /**

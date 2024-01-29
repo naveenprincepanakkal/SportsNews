@@ -1,9 +1,9 @@
-package com.naveenprince.data.mapper
+package com.naveenprince.domain.mapper
 
-import com.naveenprince.common.model.Sport
-import com.naveenprince.common.model.SportsNews
 import com.naveenprince.common.utils.Utils.Companion.timeFormatConversion
 import com.naveenprince.data.source.remote.sportsnews.NewsResponse
+import com.naveenprince.domain.model.Sport
+import com.naveenprince.domain.model.SportsNews
 
 /**
  * Class to map [NewsResponse] to list of [SportsNews]
