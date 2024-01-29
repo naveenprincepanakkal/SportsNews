@@ -39,7 +39,20 @@ class Utils {
         }
 
         /**
-         * Extension function for list to sort by descending order of date
+         * Sorts an iterable collection of items in descending order based on a date property of each item.
+         *
+         * dateProperty: (T) -> String?: A lambda function that extracts the date property as a string from an item of type T.
+         * It can potentially return null if the date property is missing.
+         *
+         * return sortedByDescending { ... }: Sorts the iterable in descending order using a custom sorting logic defined in the lambda.
+         *
+         * Custom sorting logic
+         * dateProperty(it)?.let { dateString -> sdf.parse(dateString) }:
+         *  Calls dateProperty to get the date string for the current item.
+         *  Uses let to safely handle potential null values:
+         *   If the date string is not null, parses it using sdf.parse and returns the parsed date for comparison.
+         *   If it's null, returns null, effectively placing the item at the end of the sorted list.
+         *
          */
         fun <T> Iterable<T>.sortByDescendingWithDate(
             dateProperty: (T) -> String?,
