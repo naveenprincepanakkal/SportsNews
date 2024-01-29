@@ -45,8 +45,6 @@ dependencies {
     testImplementation(libs.junit)
     testImplementation(libs.kotlinx.coroutines.test)
 
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
-
     //Mockito
     testImplementation(libs.mockito.core)
 
