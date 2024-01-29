@@ -25,7 +25,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-
 import com.naveenprince.common.utils.Utils
 import com.naveenprince.common.utils.Utils.Companion.timeFormatConversion
 import com.naveenprince.domain.model.SportsNews
@@ -107,7 +106,7 @@ fun NewsHeaderView(date: String?) {
 }
 
 @Composable
-fun NewsItemCardView(sportsResult: com.naveenprince.domain.model.SportsNews) {
+fun NewsItemCardView(sportsResult: SportsNews) {
     Card(
         modifier = Modifier
             .padding(12.dp, 6.dp)
