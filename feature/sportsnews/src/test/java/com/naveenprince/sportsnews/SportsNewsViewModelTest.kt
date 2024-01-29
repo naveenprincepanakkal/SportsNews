@@ -1,8 +1,8 @@
 package com.naveenprince.sportsnews
 
+import com.naveenprince.common.utils.Resource
 import com.naveenprince.domain.model.Sport
 import com.naveenprince.domain.model.SportsNews
-import com.naveenprince.common.utils.Resource
 import com.naveenprince.domain.usecase.SportsResultsUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
