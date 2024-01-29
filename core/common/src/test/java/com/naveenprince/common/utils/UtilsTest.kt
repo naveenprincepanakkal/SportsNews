@@ -26,7 +26,7 @@ class UtilsTest {
     @Test
     fun testTimeFormatConversion_custom() {
         val inputTime = "2020-05-09 11:15:15 PM"
-        val expectedOutput = "11:15:15 PM"
+        val expectedOutput = "11:15 PM"
         val actualOutput =
             inputTime.timeFormatConversion(Utils.TIME_FORMAT_2, Utils.TIME_FORMAT_4, Locale.ENGLISH)
         assertEquals(expectedOutput, actualOutput)

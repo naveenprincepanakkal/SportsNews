@@ -19,11 +19,8 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -42,13 +39,8 @@ import com.naveenprince.sportsnews.SportsNewsViewModel
 fun SportsNewsScreen(
     viewModel: SportsNewsViewModel = hiltViewModel()
 ) {
-    var latestNewsState by remember { mutableStateOf(SportsNewsState()) }
 
-    LaunchedEffect(true) {
-        viewModel.newsState.collect {
-            latestNewsState = it
-        }
-    }
+    val latestNewsState by viewModel.newsState.collectAsState(initial = SportsNewsState())
 
     LatestNewsView(latestNewsState.sportsResults ?: emptyList())
 
@@ -95,7 +87,6 @@ fun LatestNewsView(
                 NewsItemCardView(item)
             }
         }
-
     }
 }
 

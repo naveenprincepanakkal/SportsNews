@@ -14,7 +14,7 @@ class Utils {
         private const val TIME_FORMAT_1 = "MMM dd, yyyy hh:mm:ss a"
         const val TIME_FORMAT_2 = "yyyy-MM-dd hh:mm:ss a"
         const val TIME_FORMAT_3 = "yyyy-MM-dd"
-        const val TIME_FORMAT_4 = "hh:mm:ss a"
+        const val TIME_FORMAT_4 = "hh:mm a"
 
         /**
          * Covert time given in one format to another.
