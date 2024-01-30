@@ -1,5 +1,6 @@
 package com.naveenprince.data.di
 
+import com.naveenprince.data.api.SportsNewsApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -20,9 +21,9 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideSportsNewsApi(): com.naveenprince.data.api.SportsNewsApi {
+    fun provideSportsNewsApi(): SportsNewsApi {
         return Retrofit.Builder()
-            .baseUrl(com.naveenprince.data.api.SportsNewsApi.BASE_URL)
+            .baseUrl(SportsNewsApi.BASE_URL)
             .addConverterFactory(MoshiConverterFactory.create())
             .build()
             .create()
