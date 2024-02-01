@@ -6,7 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.naveenprince.ui.home.HomeScreen
-import com.naveenprince.ui.sportsnews.SportsNewsScreen
+import com.naveenprince.sportsnews.SportsNewsScreen
 
 /**
  * Created by Naveen.

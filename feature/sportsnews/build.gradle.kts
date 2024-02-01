@@ -31,7 +31,12 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.8"
+    }
 }
 
 dependencies {
@@ -42,11 +47,24 @@ dependencies {
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
 
+    implementation(libs.ui)
+    implementation(libs.material3)
+
     testImplementation(libs.junit)
     testImplementation(libs.kotlinx.coroutines.test)
 
+    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(platform(libs.compose.bom))
+    androidTestImplementation(libs.ui.test.junit4)
+    debugImplementation(libs.ui.tooling)
+    debugImplementation(libs.ui.test.manifest)
+
     //Mockito
     testImplementation(libs.mockito.core)
+
+    androidTestImplementation(libs.mockito.core)
+    androidTestImplementation("com.linkedin.dexmaker:dexmaker-mockito-inline:2.28.3")
+
 
     //Hilt
     implementation(libs.hilt.android)

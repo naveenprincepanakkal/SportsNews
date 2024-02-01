@@ -1,4 +1,4 @@
-package com.naveenprince.ui.sportsnews
+package com.naveenprince.sportsnews
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
@@ -23,13 +23,13 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.naveenprince.common.utils.Utils
 import com.naveenprince.common.utils.Utils.Companion.timeFormatConversion
 import com.naveenprince.domain.model.SportsNews
-import com.naveenprince.sportsnews.SportsNewsState
-import com.naveenprince.sportsnews.SportsNewsViewModel
 
 
 /**
@@ -39,9 +39,14 @@ import com.naveenprince.sportsnews.SportsNewsViewModel
 fun SportsNewsScreen(
     viewModel: SportsNewsViewModel = hiltViewModel()
 ) {
-
     val latestNewsState by viewModel.newsState.collectAsState(initial = SportsNewsState())
+    SportsNewsScreen(latestNewsState)
+}
 
+@Composable
+fun SportsNewsScreen(
+    latestNewsState: SportsNewsState
+) {
     LatestNewsView(latestNewsState.sportsResults ?: emptyList())
 
     Box(
@@ -49,19 +54,21 @@ fun SportsNewsScreen(
         contentAlignment = Alignment.Center
     ) {
         if (latestNewsState.isLoading) {
-            CircularProgressIndicator()
+            CircularProgressIndicator(modifier = Modifier.testTag("LOADING"))
         } else {
             if (latestNewsState.error != null) {
                 Text(
                     text = latestNewsState.error.toString(),
-                    color = MaterialTheme.colorScheme.error
+                    color = MaterialTheme.colorScheme.error,
+                    modifier = Modifier.testTag("ERROR")
                 )
-            } else if (latestNewsState.sportsResults == null) {
-                Text(text = "No data")
+            } else if (latestNewsState.sportsResults.isNullOrEmpty()) {
+                Text(text = stringResource(R.string.no_news_available))
             }
         }
     }
 }
+
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -99,7 +106,8 @@ fun NewsHeaderView(date: String?) {
             .padding(12.dp, 6.dp)
     ) {
         Text(
-            text = date?.let { "Result for $date" } ?: "Date unknown",
+            text = date?.let { stringResource(R.string.result_for, date) }
+                ?: stringResource(R.string.date_unknown),
             style = MaterialTheme.typography.titleMedium,
         )
     }
@@ -122,12 +130,12 @@ fun NewsItemCardView(sportsResult: SportsNews) {
                 text = sportsResult.publicationDate?.timeFormatConversion(
                     inputFormat = Utils.TIME_FORMAT_2,
                     outputFormat = Utils.TIME_FORMAT_4
-                ) ?: "Time unknown",
+                ) ?: stringResource(R.string.time_unknown),
                 style = MaterialTheme.typography.labelLarge,
             )
             Spacer(modifier = Modifier.height(4.dp))
             Text(
-                text = sportsResult.news ?: "No news available",
+                text = sportsResult.news ?: stringResource(R.string.news_unknown),
                 style = MaterialTheme.typography.bodyLarge,
             )
         }
