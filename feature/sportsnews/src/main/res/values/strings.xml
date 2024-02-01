@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="no_news_available">No News Available</string>
+    <string name="result_for">Result for %1$s</string>
+    <string name="date_unknown">Date unknown</string>
+    <string name="news_unknown">News unknown"</string>
+    <string name="time_unknown">Time unknown</string>
+</resources>
