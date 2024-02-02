@@ -1,27 +1,23 @@
-package com.naveenprince.ui.navigation
+package com.naveenprince.sportsnews.navigation
+
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
-import com.naveenprince.ui.home.HomeScreen
 import com.naveenprince.sportsnews.SportsNewsScreen
+import com.naveenprince.ui.home.HomeScreen
 
 /**
  * Created by Naveen.
  */
-@Composable
-fun SportsNewsApp() {
-    val navController = rememberNavController()
-    SportsNewsNavHost(navController = navController)
-}
 
 @Composable
 fun SportsNewsNavHost(
-    navController: NavHostController
+    navController: NavHostController,
+    startDestination: String = NavigationRoute.HOME.route
 ) {
-    NavHost(navController = navController, startDestination = NavigationRoute.HOME.route) {
+    NavHost(navController = navController, startDestination = startDestination) {
         composable(NavigationRoute.HOME.route) {
             HomeScreen(onNewsClick = { navController.navigate(NavigationRoute.NEWS.route) })
         }

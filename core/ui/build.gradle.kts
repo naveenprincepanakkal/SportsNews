@@ -1,8 +1,6 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
-    alias(libs.plugins.hilt)
-    alias(libs.plugins.ksp)
 }
 
 android {
@@ -43,16 +41,10 @@ dependencies {
 
     implementation(project(":core:common"))
     implementation(project(":core:domain"))
-    implementation(project(":feature:sportsnews"))
 
     implementation(libs.core.ktx)
-    implementation(libs.appcompat)
 
     implementation(libs.ui)
     implementation(libs.material3)
 
-    //Hilt
-    implementation(libs.hilt.android)
-    ksp(libs.hilt.android.compiler)
-    implementation(libs.hilt.navigation.compose)
 }
