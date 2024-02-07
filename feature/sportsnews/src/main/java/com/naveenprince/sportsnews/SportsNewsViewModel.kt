@@ -9,6 +9,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -33,26 +34,32 @@ class SportsNewsViewModel @Inject constructor(
     private fun getLatestNews() {
         serviceJob?.cancel()
         serviceJob = viewModelScope.launch {
-            _newsState.value = _newsState.value.copy(
-                isLoading = true,
-                error = null
-            )
+            _newsState.update { state ->
+                state.copy(
+                    isLoading = true,
+                    error = null
+                )
+            }
             sportsResultsUseCase().collect {
                 when (it) {
                     is Resource.Success -> {
-                        _newsState.value = _newsState.value.copy(
-                            sportsResults = it.data,
-                            isLoading = false,
-                            error = null
-                        )
+                        _newsState.update { state ->
+                            state.copy(
+                                sportsResults = it.data,
+                                isLoading = false,
+                                error = null
+                            )
+                        }
                     }
 
                     is Resource.Error -> {
-                        _newsState.value = _newsState.value.copy(
-                            sportsResults = null,
-                            isLoading = false,
-                            error = it.message
-                        )
+                        _newsState.update { state ->
+                            state.copy(
+                                sportsResults = null,
+                                isLoading = false,
+                                error = it.message
+                            )
+                        }
                     }
 
                 }
