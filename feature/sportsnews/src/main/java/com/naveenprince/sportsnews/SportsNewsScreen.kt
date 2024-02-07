@@ -39,7 +39,7 @@ import com.naveenprince.domain.model.SportsNews
 fun SportsNewsScreen(
     viewModel: SportsNewsViewModel = hiltViewModel()
 ) {
-    val latestNewsState by viewModel.newsState.collectAsState(initial = SportsNewsState())
+    val latestNewsState by viewModel.newsState.collectAsState()
     SportsNewsScreen(latestNewsState)
 }
 
@@ -47,8 +47,6 @@ fun SportsNewsScreen(
 fun SportsNewsScreen(
     latestNewsState: SportsNewsState
 ) {
-    LatestNewsView(latestNewsState.sportsResults ?: emptyList())
-
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
@@ -64,6 +62,8 @@ fun SportsNewsScreen(
                 )
             } else if (latestNewsState.sportsResults.isNullOrEmpty()) {
                 Text(text = stringResource(R.string.no_news_available))
+            } else {
+                LatestNewsView(latestNewsState.sportsResults)
             }
         }
     }

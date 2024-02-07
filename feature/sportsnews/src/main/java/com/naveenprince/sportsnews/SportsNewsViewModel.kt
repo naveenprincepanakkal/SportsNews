@@ -8,6 +8,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -21,11 +22,15 @@ class SportsNewsViewModel @Inject constructor(
 ) : ViewModel() {
 
     private var _newsState = MutableStateFlow(SportsNewsState())
-    val newsState: StateFlow<SportsNewsState> = _newsState
+    val newsState: StateFlow<SportsNewsState> = _newsState.asStateFlow()
 
     private var serviceJob: Job? = null
 
     init {
+        getLatestNews()
+    }
+
+    private fun getLatestNews() {
         serviceJob?.cancel()
         serviceJob = viewModelScope.launch {
             _newsState.value = _newsState.value.copy(
