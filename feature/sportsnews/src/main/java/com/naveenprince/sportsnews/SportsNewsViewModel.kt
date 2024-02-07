@@ -25,6 +25,12 @@ class SportsNewsViewModel @Inject constructor(
     private var _newsState = MutableStateFlow(SportsNewsState())
     val newsState: StateFlow<SportsNewsState> = _newsState.asStateFlow()
 
+    private var state: SportsNewsState
+        get() = _newsState.value
+        set(newState) {
+            _newsState.update { newState }
+        }
+
     private var serviceJob: Job? = null
 
     init {
@@ -34,32 +40,26 @@ class SportsNewsViewModel @Inject constructor(
     private fun getLatestNews() {
         serviceJob?.cancel()
         serviceJob = viewModelScope.launch {
-            _newsState.update { state ->
-                state.copy(
-                    isLoading = true,
-                    error = null
-                )
-            }
+            state = state.copy(
+                isLoading = true,
+                error = null
+            )
             sportsResultsUseCase().collect {
                 when (it) {
                     is Resource.Success -> {
-                        _newsState.update { state ->
-                            state.copy(
-                                sportsResults = it.data,
-                                isLoading = false,
-                                error = null
-                            )
-                        }
+                        state = state.copy(
+                            sportsResults = it.data,
+                            isLoading = false,
+                            error = null
+                        )
                     }
 
                     is Resource.Error -> {
-                        _newsState.update { state ->
-                            state.copy(
-                                sportsResults = null,
-                                isLoading = false,
-                                error = it.message
-                            )
-                        }
+                        state = state.copy(
+                            sportsResults = null,
+                            isLoading = false,
+                            error = it.message
+                        )
                     }
 
                 }
