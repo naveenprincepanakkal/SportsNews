@@ -48,7 +48,6 @@ dependencies {
     testImplementation(libs.mockito.core)
 
     //Moshi for testing
-    testImplementation(libs.moshi)
     testImplementation(libs.moshi.kotlin)
 
     //Hilt
@@ -59,4 +58,5 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.moshi)
     implementation(libs.logging.interceptor)
+    implementation(libs.moshi.kotlin)
 }

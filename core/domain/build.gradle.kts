@@ -52,6 +52,5 @@ dependencies {
     ksp(libs.hilt.android.compiler)
 
     //Moshi for testing
-    testImplementation(libs.moshi)
     testImplementation(libs.moshi.kotlin)
 }

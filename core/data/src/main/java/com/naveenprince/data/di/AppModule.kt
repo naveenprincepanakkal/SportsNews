@@ -1,6 +1,8 @@
 package com.naveenprince.data.di
 
 import com.naveenprince.data.api.SportsNewsApi
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,9 +24,14 @@ object AppModule {
     @Provides
     @Singleton
     fun provideSportsNewsApi(): SportsNewsApi {
+
+        val moshi = Moshi.Builder()
+            .add(KotlinJsonAdapterFactory())
+            .build()
+
         return Retrofit.Builder()
             .baseUrl(SportsNewsApi.BASE_URL)
-            .addConverterFactory(MoshiConverterFactory.create())
+            .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
             .create()
     }
