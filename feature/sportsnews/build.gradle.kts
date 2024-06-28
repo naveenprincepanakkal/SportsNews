@@ -1,17 +1,17 @@
 plugins {
-    alias(libs.plugins.androidLibrary)
-    alias(libs.plugins.kotlinAndroid)
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.hilt)
     alias(libs.plugins.ksp)
-    alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
     namespace = "com.naveenprince.sportsnews"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
-        minSdk = 29
+        minSdk = 30
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

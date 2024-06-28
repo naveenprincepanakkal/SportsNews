@@ -1,19 +1,19 @@
 plugins {
-    alias(libs.plugins.androidApplication)
-    alias(libs.plugins.kotlinAndroid)
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.hilt)
     alias(libs.plugins.ksp)
-    alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
     namespace = "com.naveenprince.sportsnews"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.naveenprince.sportsnews"
-        minSdk = 29
-        targetSdk = 34
+        minSdk = 30
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
