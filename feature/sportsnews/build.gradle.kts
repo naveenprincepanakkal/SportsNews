@@ -58,7 +58,7 @@ dependencies {
     testImplementation(libs.mockito.core)
 
     androidTestImplementation(libs.mockito.core)
-    androidTestImplementation("com.linkedin.dexmaker:dexmaker-mockito-inline:2.28.3")
+    androidTestImplementation(libs.dexmaker.mockito.inline)
 
 
     //Hilt
