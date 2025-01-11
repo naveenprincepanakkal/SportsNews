@@ -1,5 +1,5 @@
 [versions]
-agp = "8.7.3"
+agp = "8.8.0"
 appcompat = "1.7.0"
 dexmakerMockitoInline = "2.28.4"
 kotlin = "2.0.20"
@@ -16,9 +16,9 @@ moshi = "1.15.2"
 retrofit = "2.11.0"
 logging-interceptor = "4.12.0"
 ksp = "2.0.20-1.0.25"
-hilt-android = "2.54"
+hilt-android = "2.55"
 hilt-navigation-compose = "1.2.0"
-mockito-core = "5.14.2"
+mockito-core = "5.15.2"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
